@@ -11,7 +11,7 @@ public class BerserkerOrcBehaviour : MonoBehaviour {
     void Start()
     {
         berserkerStats = this.GetComponent<EnemyStats>();
-        berserkerStats.health = 30;
+        berserkerStats.curHealth = 30;
         berserkerStats.movementSpeed = 0.55f;
     }
 
@@ -28,7 +28,7 @@ public class BerserkerOrcBehaviour : MonoBehaviour {
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
         }
 
-        if (berserkerStats.health <= 0)
+        if (berserkerStats.curHealth <= 0)
         {
             Destroy(this.gameObject);
         }

@@ -61,16 +61,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ActiveSpell.cs" />
     <Compile Include="Assets\Scripts\AimAssist.cs" />
     <Compile Include="Assets\Scripts\ArcherOrcBehaviour.cs" />
     <Compile Include="Assets\Scripts\ArrowBehaviour.cs" />
     <Compile Include="Assets\Scripts\BerserkerOrcBehaviour.cs" />
     <Compile Include="Assets\Scripts\BowBehaviour.cs" />
+    <Compile Include="Assets\Scripts\DarkenTheSkies.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\EnemyStats.cs" />
+    <Compile Include="Assets\Scripts\Fortify.cs" />
+    <Compile Include="Assets\Scripts\HeadShot.cs" />
+    <Compile Include="Assets\Scripts\ImprovedArrows.cs" />
+    <Compile Include="Assets\Scripts\PassiveSpell.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerHandler.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
-    <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\ProjectileArcRenderer.cs" />
+    <Compile Include="Assets\Scripts\PublicMethods.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Attributes.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Skills.cs" />
+    <Compile Include="Assets\Scripts\Spell.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>F:/GameDev/Onslaught/Onslaught/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

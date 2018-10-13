@@ -7,13 +7,15 @@ public class ArrowBehaviour : MonoBehaviour {
     BowBehaviour bBehaviour;
     PlayerStats playerStats;
 
+    public bool arrowFired = false;
+
     float damage;
 
     private void Start()
     {
         bBehaviour = GameObject.Find("Bow").GetComponent<BowBehaviour>();
         playerStats = GameObject.Find("Archer").GetComponent<PlayerStats>();
-        damage = playerStats.damage;
+        damage = playerStats.curDamage;
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -30,7 +32,7 @@ public class ArrowBehaviour : MonoBehaviour {
         if (collision.gameObject.tag == "Enemy")
         {
             Destroy(this.gameObject);
-            collision.gameObject.GetComponent<EnemyStats>().health -= damage;
+            collision.gameObject.GetComponent<EnemyStats>().curHealth -= damage;
         }
     }
     void Update()

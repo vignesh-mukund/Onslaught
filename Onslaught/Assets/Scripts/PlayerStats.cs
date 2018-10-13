@@ -2,21 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerStats : MonoBehaviour {
 
-    public float damage;
+    [Header ("Player Stats")]
+    public string userName;
+    public int level;
+    
+    public float baseDamage;
+    public float curDamage;
+
     public float maxHealth;
+    public float curHealth;
+
     public float maxMagic;
-    public float maxExp;
+    public float curMagic;
+
     public float magicRegen;
+    public float healthRegen;
+
+    public float maxExp;
+    public float curExp;
+
+    public float movementSpeed;
+    public float attackSpeed;
+
+    public bool isDead;
 
     float health;
     float magic;
     float exp;
 
+    [Header ("Player Skills")]
+    public List<Skills> Skills = new List<Skills>();
+
     private void Start()
     {
-        damage = 10f;
+        baseDamage = 10f;
         maxHealth = 200f;
         maxMagic = 10f;
         maxExp = 100f;

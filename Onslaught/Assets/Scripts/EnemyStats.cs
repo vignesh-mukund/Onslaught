@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour {
 
     public float maxHealth;
-    public float health;
+    public float curHealth;
     public float movementSpeed;
 
 	// Use this for initialization

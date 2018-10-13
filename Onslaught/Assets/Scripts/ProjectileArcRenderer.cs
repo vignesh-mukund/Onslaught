@@ -6,10 +6,12 @@ using UnityEngine;
 public class ProjectileArcRenderer : MonoBehaviour {
 
     LineRenderer lr;
+    BowBehaviour bBehaviour;
+    PlayerController pController;
 
-    public Vector3 player_pos;
-    public float velocity = 12.5F;
-    public float angle = 0;
+    Vector3 player_pos;
+    float velocity = 12.5F;
+    float angle = 0;
     public int resolution = 70;
 
     float g;
@@ -24,31 +26,36 @@ public class ProjectileArcRenderer : MonoBehaviour {
     
     void Start ()
     {
+        bBehaviour = GameObject.Find("Bow").GetComponent<BowBehaviour>();
+        pController = GameObject.Find("Archer").GetComponent<PlayerController>();
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            isAiming = true;
-            lr.enabled = true;
-        }
-        if (isAiming)
-        {
-            Vector3 mouse_pos = Input.mousePosition;
-            player_pos = Camera.main.WorldToScreenPoint(this.transform.position);
+        if (pController.isActive == PlayerController.ActiveAttack.None)
+        { 
+            if (Input.GetMouseButtonDown(0) && bBehaviour.canShoot)
+            {
+                isAiming = true;
+                lr.enabled = true;
+            }
+            if (isAiming)
+            {
+                Vector3 mouse_pos = Input.mousePosition;
+                player_pos = Camera.main.WorldToScreenPoint(this.transform.position);
 
-            mouse_pos.x = mouse_pos.x - player_pos.x;
-            mouse_pos.y = mouse_pos.y - player_pos.y;
+                mouse_pos.x = mouse_pos.x - player_pos.x;
+                mouse_pos.y = mouse_pos.y - player_pos.y;
 
-            angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
-            //this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            RenderArc();
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            lr.enabled = false;
-            isAiming = false;
+                angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
+                //this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                RenderArc();
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                lr.enabled = false;
+                isAiming = false;
+            }
         }
     }
 
@@ -63,9 +70,8 @@ public class ProjectileArcRenderer : MonoBehaviour {
         Vector3[] arcArray = new Vector3[resolution + 1];
 
         radianAngle = Mathf.Deg2Rad * angle;
-        //float maxDistance = (velocity * velocity * Mathf.Sin(2 * radianAngle)) / g;
 
-        float maxDistance = ((velocity * Mathf.Cos(radianAngle) / g) * ((velocity * Mathf.Sin(radianAngle)) + Mathf.Sqrt((velocity * Mathf.Sin(radianAngle) * Mathf.Sin(radianAngle)) + (2 * g * 10))));
+        float maxDistance = ((velocity * Mathf.Cos(radianAngle) / g) * ((velocity * Mathf.Sin(radianAngle)) + Mathf.Sqrt((velocity * Mathf.Sin(radianAngle) * Mathf.Sin(radianAngle)) + (2 * g * 15))));
 
         for (int i = 0; i <= resolution; i++)
         {

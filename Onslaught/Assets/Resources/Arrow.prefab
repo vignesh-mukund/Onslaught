@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 61176972854149448}
   - component: {fileID: 231023042074249118}
   - component: {fileID: 114944061042455662}
-  - component: {fileID: 114905267117917232}
   - component: {fileID: 114496034646445310}
   m_Layer: 0
   m_Name: Arrow
@@ -39,9 +38,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278597615185374}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.090478, y: 0.81146383, z: -0.16400002}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.014521599, y: -0.0315361, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.29999995, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -102,31 +101,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1244a9ddd319d042a0fb7184bb11c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
---- !u!114 &114905267117917232
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1278597615185374}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b14a5254d41408a4fa77af29562452ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrow: {fileID: 1278597615185374}
-  player_pos: {x: 0, y: 0, z: 0}
-  targetPos: {x: 0, y: 0, z: 0}
-  speed: 10
-  arcHeight: 1
-  chargedPower: 0
+  arrowFired: 0
 --- !u!114 &114944061042455662
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278597615185374}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37b6e3dbab67bc44dbc27c94df5fe0fa, type: 3}
   m_Name: 
