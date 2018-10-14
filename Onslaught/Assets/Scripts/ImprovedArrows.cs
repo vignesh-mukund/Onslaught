@@ -22,9 +22,9 @@ public class ImprovedArrows : PassiveSpell
         }
     }
 
-    void ApplySpell()
+    public void ApplySpell()
     {
-        pStats.baseDamage = pStats.baseDamage + (spellLevel * amount);
+        pStats.baseDamage += (spellLevel * amount);
 
     }
 }

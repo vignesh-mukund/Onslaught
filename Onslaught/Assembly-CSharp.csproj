@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\PublicMethods.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Attributes.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Skills.cs" />
+    <Compile Include="Assets\Scripts\SkillBar.cs" />
     <Compile Include="Assets\Scripts\Spell.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\PlayerStatsUI.cs" />
     <Reference Include="UnityEditor.StandardEvents">

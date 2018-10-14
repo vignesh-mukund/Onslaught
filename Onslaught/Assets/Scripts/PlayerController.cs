@@ -37,26 +37,37 @@ public class PlayerController : MonoBehaviour {
     {
         if(darkenTheSkiesSpell.spellLevel >= 1)
         {
-            if (Time.time > spell1CDTimer)
+            if (pStats.curMagic - darkenTheSkiesSpell.magicRequired >= 0)
             {
-                if (Input.GetButton("Fire1"))
+                if (Time.time > spell1CDTimer)
                 {
-                    isActive = ActiveAttack.Spell1;
-                    spell1CDTimer = Time.time + darkenTheSkiesSpell.cooldown;
+                    if (Input.GetButton("Fire1"))
+                    {
+                        isActive = ActiveAttack.Spell1;
+                    }
                 }
+            }
+            else
+            {
+                return;
             }
         }
 
         if (headShotSpell.spellLevel >= 1)
         {
-            if (Time.time > spell2CDTimer)
+            if (pStats.curMagic - headShotSpell.magicRequired >= 0)
             {
-                if (Input.GetButtonDown("Fire2"))
+                if (Time.time > spell2CDTimer)
                 {
-                    isActive = ActiveAttack.Spell2;
-                    Debug.Log("DD");
-                    spell2CDTimer = Time.time + headShotSpell.cooldown;
+                    if (Input.GetButtonDown("Fire2"))
+                    {
+                        isActive = ActiveAttack.Spell2;
+                    }
                 }
+            }
+            else
+            {
+                return;
             }
         }
 
@@ -66,6 +77,41 @@ public class PlayerController : MonoBehaviour {
             if ((Input.GetButton("Cancel")) || (Input.GetMouseButton(1)))
             {
                 isActive = ActiveAttack.None;
+            }
+        }
+
+    }
+    
+    public void ActivateSkill(ActiveSpell spell)
+    {
+        if (spell == darkenTheSkiesSpell)
+        {
+            if (pStats.curMagic - spell.magicRequired >= 0)
+            {
+                if (Time.time > spell1CDTimer)
+                {
+                    isActive = ActiveAttack.Spell1;
+                    spell1CDTimer = Time.time + darkenTheSkiesSpell.cooldown;
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+        else if (spell == headShotSpell)
+        {
+            if (pStats.curMagic - headShotSpell.magicRequired >= 0)
+            {
+                if (Time.time > spell2CDTimer)
+            {
+                    isActive = ActiveAttack.Spell2;
+                    spell2CDTimer = Time.time + headShotSpell.cooldown;
+                }
+            }
+            else
+            {
+                return;
             }
         }
 

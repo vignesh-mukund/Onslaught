@@ -21,7 +21,7 @@ public class Fortify : PassiveSpell {
         }
     }
 
-    void ApplySpell()
+    public void ApplySpell()
     {
         pStats.maxHealth += spellLevel * amount;
         if(pStats.curHealth < pStats.maxHealth)

@@ -14,10 +14,7 @@ public class HeadShot : ActiveSpell {
     {
         pController = GameObject.Find("Archer").GetComponent<PlayerController>();
         pStats = GameObject.Find("Archer").GetComponent<PlayerStats>();
-        spellLevel = 1;
         timer = 0f;
-        cooldown = 20;
-        duration = 4.0f;
     }
 
     private void Update()
@@ -25,6 +22,7 @@ public class HeadShot : ActiveSpell {
         if (pController.isActive == PlayerController.ActiveAttack.Spell2)
         {
             ActivateSpell();
+            pController.spell2CDTimer = Time.time + cooldown;
             timer = Time.time + duration;
             pController.isActive = PlayerController.ActiveAttack.None;
         }

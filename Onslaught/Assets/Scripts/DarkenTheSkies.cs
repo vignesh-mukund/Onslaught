@@ -20,6 +20,8 @@ public class DarkenTheSkies : ActiveSpell {
     float cdTimer;
     public float damageTickDuration;
 
+    Plane plane;
+
     private void Start()
     {
         pController = GameObject.Find("Archer").GetComponent<PlayerController>();
@@ -32,7 +34,7 @@ public class DarkenTheSkies : ActiveSpell {
     private void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Plane plane = new Plane(Vector3.forward, transform.position);
+        plane = new Plane(Vector3.forward, transform.position);
         float dist = 0;
         if(plane.Raycast(ray, out dist)){
             pos = ray.GetPoint(dist);
@@ -41,6 +43,11 @@ public class DarkenTheSkies : ActiveSpell {
         if (pController.isActive == PlayerController.ActiveAttack.Spell1)
         {
             AOEMarker();
+        }
+
+        if (pController.isActive == PlayerController.ActiveAttack.None)
+        {
+            lr.enabled = false;
         }
     }
 
@@ -56,6 +63,7 @@ public class DarkenTheSkies : ActiveSpell {
         {
             timer = Time.time + duration;
             StartCoroutine(ActivateSpell());
+            pController.spell1CDTimer = Time.time + cooldown;
             pController.isActive = PlayerController.ActiveAttack.None;
         }
     }

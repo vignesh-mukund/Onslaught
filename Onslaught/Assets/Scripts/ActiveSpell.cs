@@ -8,4 +8,5 @@ public class ActiveSpell : Spell {
     public float damage;
     public float duration;
     public int cooldown;
+    public int magicRequired;
 }
