@@ -12,8 +12,6 @@ public class ImprovedArrows : PassiveSpell
     {
         pController = GameObject.Find("Archer").GetComponent<PlayerController>();
         pStats = GameObject.Find("Archer").GetComponent<PlayerStats>();
-        spellLevel = 1;
-        amount = 10;
     }
 
     private void Update()

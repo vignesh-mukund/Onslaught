@@ -5,32 +5,25 @@ using UnityEngine;
 public class DarkenTheSkies : ActiveSpell {
     
     PlayerController pController;
-    PlayerStats pStats;
+    PlayerStats pStats;                 // Fetching global player stats.
+    DarkenTheSkies dts;
 
-    public LineRenderer lr;
-    public ParticleSystem ps;
+    public LineRenderer lr;             // This draws the aoe marker around the mouse position.
+    public ParticleSystem ps;           // Particle system to show AOE FX.
 
-    Vector3 mouse_pos;
-    Vector3 player_pos;
-    Vector3 pos;
+    Vector3 mouse_pos;                  // Mouse position.
+    Vector3 player_pos;                 // Back-up variable for camera to viewport calculations.
+    Vector3 pos;                        // Holds raycast translated mouse pos values.
 
-    float range;
+    public float range;                        //
     float timer;
     float cdTimer;
-    float damageTickDuration;
-
-    List<GameObject> enemyList = new List<GameObject>();
+    public float damageTickDuration;
 
     private void Start()
     {
         pController = GameObject.Find("Archer").GetComponent<PlayerController>();
         pStats = GameObject.Find("Archer").GetComponent<PlayerStats>();
-        spellLevel = 1;
-        damage = 5f;
-        cooldown = 20;
-        duration = 5;
-        range = 2f;
-        damageTickDuration = 1f;
         timer = 0;
         lr.enabled = false;
         ps.Pause();
@@ -51,14 +44,9 @@ public class DarkenTheSkies : ActiveSpell {
         }
     }
 
-    void SpellStats()
-    {
-    }
-
     void AOEMarker()
     {
         lr.enabled = true;
-        //lr.transform.position = new Vector3(pos.x, 9.5f, 0);
         this.transform.position = new Vector3(pos.x, -3.2f, 0);
         lr.positionCount = 2;
         lr.SetPosition(0, new Vector3((pos.x - (range / 2)), -3.4f, 0));

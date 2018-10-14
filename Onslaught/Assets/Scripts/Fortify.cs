@@ -11,8 +11,6 @@ public class Fortify : PassiveSpell {
     {
         pController = GameObject.Find("Archer").GetComponent<PlayerController>();
         pStats = GameObject.Find("Archer").GetComponent<PlayerStats>();
-        spellLevel = 1;
-        amount = 25;
     }
 
     private void Update()

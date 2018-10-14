@@ -7,13 +7,17 @@ public class BerserkerOrcBehaviour : MonoBehaviour {
 
     EnemyStats berserkerStats;
     GameController gController;
+    LevelSystem lSystem;
 
     // Use this for initialization
     void Start()
     {
+        gController = GameObject.Find("GameController").GetComponent<GameController>();
+        lSystem = GameObject.Find("GameController").GetComponent<LevelSystem>();
         berserkerStats = this.GetComponent<EnemyStats>();
         berserkerStats.curHealth = 30;
         berserkerStats.movementSpeed = 0.55f;
+        berserkerStats.expReward = 40;
         gController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
@@ -32,6 +36,7 @@ public class BerserkerOrcBehaviour : MonoBehaviour {
 
         if (berserkerStats.curHealth <= 0)
         {
+            lSystem.UpdateExp(berserkerStats.expReward);
             Destroy(this.gameObject);
             gController.enemiesAlive--;
         }

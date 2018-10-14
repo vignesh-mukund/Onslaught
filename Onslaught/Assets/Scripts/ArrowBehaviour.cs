@@ -18,17 +18,14 @@ public class ArrowBehaviour : MonoBehaviour {
         damage = pStats.curDamage;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (col.gameObject.tag == "Ground" || col.gameObject.tag == "Home Tower")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Home Tower")
         {
             Destroy(this.gameObject);
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
         if (collision.gameObject.tag == "Enemy")
         {
             Destroy(this.gameObject);

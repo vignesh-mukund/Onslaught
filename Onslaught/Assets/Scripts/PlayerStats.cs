@@ -21,8 +21,11 @@ public class PlayerStats : MonoBehaviour {
     public float magicRegen;
     public float healthRegen;
 
-    public float maxExp;
-    public float curExp;
+    public int maxExp;
+    public int curExp;
+
+    public int unspentSkillPoints;
+    public int spentSkillPoints;
 
     public float movementSpeed;
     public float attackSpeed;
@@ -41,6 +44,6 @@ public class PlayerStats : MonoBehaviour {
         baseDamage = 10f;
         maxHealth = 200f;
         maxMagic = 10f;
-        maxExp = 100f;
+        //maxExp = 100;
     }
 }

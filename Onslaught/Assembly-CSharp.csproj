@@ -75,9 +75,11 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\HeadShot.cs" />
     <Compile Include="Assets\Scripts\ImprovedArrows.cs" />
+    <Compile Include="Assets\Scripts\LevelSystem.cs" />
     <Compile Include="Assets\Scripts\PassiveSpell.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerHandler.cs" />
+    <Compile Include="Assets\Scripts\PlayerSkillMap.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\ProjectileArcRenderer.cs" />
     <Compile Include="Assets\Scripts\PublicMethods.cs" />

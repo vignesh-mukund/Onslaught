@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    
+    PlayerStats pStats;
+    PlayerSkillMap pSkillMap;
 
     BowBehaviour bBehaviour;
     HeadShot headShotSpell;
     DarkenTheSkies darkenTheSkiesSpell;
-
-    PlayerStats pStats;
 
     public bool isArrowLoaded;
     public enum ActiveAttack { None, Spell1, Spell2};
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour {
         headShotSpell = GameObject.Find("HeadShot").GetComponent<HeadShot>();
         darkenTheSkiesSpell = GameObject.Find("DarkenTheSkies").GetComponent<DarkenTheSkies>();
         pStats = GameObject.Find("Archer").GetComponent<PlayerStats>();
+        pSkillMap = GameObject.Find("Archer").GetComponent<PlayerSkillMap>();
 
         isActive = ActiveAttack.None;
         spell1CDTimer = 0.0f;
@@ -33,25 +35,32 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
-        if (Time.time > spell1CDTimer)
+        if(darkenTheSkiesSpell.spellLevel >= 1)
         {
-            if (Input.GetButton("Fire1"))
+            if (Time.time > spell1CDTimer)
             {
-                isActive = ActiveAttack.Spell1;
-                spell1CDTimer = Time.time + darkenTheSkiesSpell.cooldown;
+                if (Input.GetButton("Fire1"))
+                {
+                    isActive = ActiveAttack.Spell1;
+                    spell1CDTimer = Time.time + darkenTheSkiesSpell.cooldown;
+                }
             }
         }
 
-        if (Time.time > spell2CDTimer)
+        if (headShotSpell.spellLevel >= 1)
         {
-            if (Input.GetButtonDown("Fire2"))
+            if (Time.time > spell2CDTimer)
             {
-                isActive = ActiveAttack.Spell2;
-                Debug.Log("DD");
-                spell2CDTimer = Time.time + headShotSpell.cooldown;
+                if (Input.GetButtonDown("Fire2"))
+                {
+                    isActive = ActiveAttack.Spell2;
+                    Debug.Log("DD");
+                    spell2CDTimer = Time.time + headShotSpell.cooldown;
+                }
             }
         }
+
+
         if(isActive == ActiveAttack.Spell1 || isActive == ActiveAttack.Spell2)
         {
             if ((Input.GetButton("Cancel")) || (Input.GetMouseButton(1)))
