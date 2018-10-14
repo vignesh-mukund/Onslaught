@@ -20,13 +20,13 @@ public class ImprovedArrows : PassiveSpell
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Invoke("ApplySpell", 0.1f);
+            Invoke("ApplySpell", 0.0f);
         }
     }
 
     void ApplySpell()
     {
-        pStats.baseDamage += spellLevel * amount;
+        pStats.baseDamage = pStats.baseDamage + (spellLevel * amount);
 
     }
 }

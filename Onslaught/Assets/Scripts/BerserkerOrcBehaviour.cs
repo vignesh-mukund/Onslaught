@@ -6,6 +6,7 @@ public class BerserkerOrcBehaviour : MonoBehaviour {
     
 
     EnemyStats berserkerStats;
+    GameController gController;
 
     // Use this for initialization
     void Start()
@@ -13,6 +14,7 @@ public class BerserkerOrcBehaviour : MonoBehaviour {
         berserkerStats = this.GetComponent<EnemyStats>();
         berserkerStats.curHealth = 30;
         berserkerStats.movementSpeed = 0.55f;
+        gController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class BerserkerOrcBehaviour : MonoBehaviour {
         if (berserkerStats.curHealth <= 0)
         {
             Destroy(this.gameObject);
+            gController.enemiesAlive--;
         }
     }
 }

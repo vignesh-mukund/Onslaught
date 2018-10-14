@@ -67,10 +67,12 @@
     <Compile Include="Assets\Scripts\ArrowBehaviour.cs" />
     <Compile Include="Assets\Scripts\BerserkerOrcBehaviour.cs" />
     <Compile Include="Assets\Scripts\BowBehaviour.cs" />
+    <Compile Include="Assets\Scripts\DamageOverTime.cs" />
     <Compile Include="Assets\Scripts\DarkenTheSkies.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Fortify.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\HeadShot.cs" />
     <Compile Include="Assets\Scripts\ImprovedArrows.cs" />
     <Compile Include="Assets\Scripts\PassiveSpell.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="Assets\Scripts\ScriptableObjects\Attributes.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Skills.cs" />
     <Compile Include="Assets\Scripts\Spell.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\PlayerStatsUI.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>F:/GameDev/Onslaught/Onslaught/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

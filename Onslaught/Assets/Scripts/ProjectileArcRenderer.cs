@@ -37,10 +37,10 @@ public class ProjectileArcRenderer : MonoBehaviour {
             if (Input.GetMouseButtonDown(0) && bBehaviour.canShoot)
             {
                 isAiming = true;
-                lr.enabled = true;
             }
             if (isAiming)
             {
+                lr.enabled = true;
                 Vector3 mouse_pos = Input.mousePosition;
                 player_pos = Camera.main.WorldToScreenPoint(this.transform.position);
 

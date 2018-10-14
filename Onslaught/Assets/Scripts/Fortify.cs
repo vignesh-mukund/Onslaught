@@ -19,7 +19,7 @@ public class Fortify : PassiveSpell {
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Invoke("ApplySpell", 0.1f);
+            Invoke("ApplySpell", 0.0f);
         }
     }
 

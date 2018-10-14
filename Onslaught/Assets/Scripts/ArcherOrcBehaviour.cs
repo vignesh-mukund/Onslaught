@@ -5,12 +5,14 @@ using UnityEngine;
 public class ArcherOrcBehaviour : MonoBehaviour {
 
     EnemyStats archerStats;
+    GameController gController;
 
 	// Use this for initialization
 	void Start () {
         archerStats = this.GetComponent<EnemyStats>();
         archerStats.curHealth = 10;
         archerStats.movementSpeed = 0.6f;
+        gController = GameObject.Find("GameController").GetComponent<GameController>();
 	}
 	
 	// Update is called once per frame
@@ -30,6 +32,7 @@ public class ArcherOrcBehaviour : MonoBehaviour {
         if (archerStats.curHealth <= 0)
         {
             Destroy(this.gameObject);
+            gController.enemiesAlive--;
         }
 
     }

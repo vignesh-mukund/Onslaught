@@ -24,9 +24,9 @@ public class HeadShot : ActiveSpell {
     {
         if (pController.isActive == PlayerController.ActiveAttack.Spell2)
         {
-            //Invoke("ActivateSpell", 1.0f);
+            ActivateSpell();
             timer = Time.time + duration;
-            print(timer);
+            pController.isActive = PlayerController.ActiveAttack.None;
         }
         if (Time.time >= timer)
         {
@@ -34,8 +34,8 @@ public class HeadShot : ActiveSpell {
         }
     }
 
-    public void ActivateSpell()
+    void ActivateSpell()
     {
-        pStats.curDamage = 2 * pStats.baseDamage;
+        pStats.curDamage = 2f * pStats.baseDamage;
     }
 }

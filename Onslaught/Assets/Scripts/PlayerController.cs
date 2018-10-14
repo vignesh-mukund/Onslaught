@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
     HeadShot headShotSpell;
     DarkenTheSkies darkenTheSkiesSpell;
 
+    PlayerStats pStats;
+
     public bool isArrowLoaded;
     public enum ActiveAttack { None, Spell1, Spell2};
     public ActiveAttack isActive;
@@ -17,9 +19,11 @@ public class PlayerController : MonoBehaviour {
     
     void Start () {
 
-        bBehaviour = GameObject.Find("Bow").GetComponent<BowBehaviour>();
+        //bBehaviour = GameObject.Find("Bow").GetComponent<BowBehaviour>();
         headShotSpell = GameObject.Find("HeadShot").GetComponent<HeadShot>();
         darkenTheSkiesSpell = GameObject.Find("DarkenTheSkies").GetComponent<DarkenTheSkies>();
+        pStats = GameObject.Find("Archer").GetComponent<PlayerStats>();
+
         isActive = ActiveAttack.None;
         spell1CDTimer = 0.0f;
         spell2CDTimer = 0.0f;
@@ -44,18 +48,13 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetButtonDown("Fire2"))
             {
                 isActive = ActiveAttack.Spell2;
-                headShotSpell.GetComponent<HeadShot>().ActivateSpell();
+                Debug.Log("DD");
                 spell2CDTimer = Time.time + headShotSpell.cooldown;
             }
         }
-        if(Input.GetButtonUp("Fire2"))
-        {
-            isActive = ActiveAttack.None;
-        }
-
         if(isActive == ActiveAttack.Spell1 || isActive == ActiveAttack.Spell2)
         {
-            if (Input.GetButton("Cancel"))
+            if ((Input.GetButton("Cancel")) || (Input.GetMouseButton(1)))
             {
                 isActive = ActiveAttack.None;
             }

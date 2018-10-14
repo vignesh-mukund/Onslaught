@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArrowBehaviour : MonoBehaviour {
 
     BowBehaviour bBehaviour;
-    PlayerStats playerStats;
+    PlayerStats pStats;
 
     public bool arrowFired = false;
 
@@ -14,8 +14,8 @@ public class ArrowBehaviour : MonoBehaviour {
     private void Start()
     {
         bBehaviour = GameObject.Find("Bow").GetComponent<BowBehaviour>();
-        playerStats = GameObject.Find("Archer").GetComponent<PlayerStats>();
-        damage = playerStats.curDamage;
+        pStats = GameObject.Find("Archer").GetComponent<PlayerStats>();
+        damage = pStats.curDamage;
     }
 
     void OnCollisionEnter2D(Collision2D col)
