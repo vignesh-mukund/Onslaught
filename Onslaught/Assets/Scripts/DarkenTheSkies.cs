@@ -56,7 +56,7 @@ public class DarkenTheSkies : ActiveSpell {
     void AOEMarker()
     {
         lr.enabled = true;
-        this.transform.position = new Vector3(pos.x, -3.2f, 0);
+        this.transform.position = new Vector3(pos.x, -2.6f, 0);
         lr.positionCount = 2;
         lr.SetPosition(0, new Vector3((pos.x - (range / 2)), -3.4f, 0));
         lr.SetPosition(1, new Vector3((pos.x + (range / 2)), -3.4f, 0));

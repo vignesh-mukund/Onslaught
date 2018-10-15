@@ -25,7 +25,7 @@ public class LevelSystem : MonoBehaviour {
         if(curLevel != pStats.level)
         {
             pStats.level = curLevel;
-            pStats.maxMagic += 5;
+            pStats.maxMagic += 3f;
             pStats.unspentSkillPoints += 1;
         }
 

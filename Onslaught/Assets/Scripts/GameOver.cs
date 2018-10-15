@@ -22,6 +22,14 @@ public class GameOver : MonoBehaviour
         if(pStats.curHealth <= 0)
         {
             anim.SetTrigger("GameOver");
+            StartCoroutine(GameOverScreen());
         }
+    }
+
+    IEnumerator GameOverScreen()
+    {
+        yield return new WaitForSeconds(3);
+        Time.timeScale = 0;
+
     }
 }

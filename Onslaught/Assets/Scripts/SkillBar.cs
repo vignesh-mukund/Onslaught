@@ -18,6 +18,8 @@ public class SkillBar : MonoBehaviour {
     public Text skill1LevelUpText, skill2LevelUpText, skill3LevelUpText, skill4LevelUpText;
 
     public Text skill1LevelText, skill2LevelText, skill3LevelText, skill4LevelText;
+
+    public Text cd1Text, cd2Text;
     
 
     public DarkenTheSkies darkenTheSkies;
@@ -54,10 +56,10 @@ public class SkillBar : MonoBehaviour {
         levelSkill3.interactable = false;
         levelSkill4.interactable = false;
 
-        skill1Name.text = "Darken The Skies";
-        skill2Name.text = "Headshot";
-        skill3Name.text = "Fortify";
-        skill4Name.text = "Improved Arrows";
+        skill1Name.text = "DARKEN THE SKIES";
+        skill2Name.text = "HEADSHOT";
+        skill3Name.text = "FORTIFY";
+        skill4Name.text = "IMPROVED ARROWS";
 
         skill1LevelText.text = darkenTheSkies.spellLevel.ToString();
         skill2LevelText.text = headShot.spellLevel.ToString();
@@ -78,6 +80,25 @@ public class SkillBar : MonoBehaviour {
         skill2LevelUpText.text = pStats.unspentSkillPoints.ToString();
         skill3LevelUpText.text = pStats.unspentSkillPoints.ToString();
         skill4LevelUpText.text = pStats.unspentSkillPoints.ToString();
+
+        if(pController.spell1CDTimer - Time.time > 0)
+        {
+            cd1Text.text = ((int)(pController.spell1CDTimer - Time.time)).ToString();
+        }
+        if(pController.spell1CDTimer - Time.time <= 0)
+        {
+            cd1Text.text = "";
+        }
+
+        if (pController.spell2CDTimer - Time.time > 0)
+        {
+            cd2Text.text = ((int)(pController.spell2CDTimer - Time.time)).ToString();
+        }
+
+        if (pController.spell2CDTimer - Time.time <= 0)
+        {
+            cd2Text.text = "";
+        }
 
         if (darkenTheSkies.spellLevel >= 1)
         {

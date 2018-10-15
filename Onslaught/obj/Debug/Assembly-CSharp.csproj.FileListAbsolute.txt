@@ -11,8 +11,6 @@ F:\GameDev\Onslaught\Onslaught\Temp\bin\Debug\System.Xml.dll
 F:\GameDev\Onslaught\Onslaught\Temp\bin\Debug\System.Xml.Linq.dll
 F:\GameDev\Onslaught\Onslaught\Temp\bin\Debug\Unity.Locator.dll
 F:\GameDev\Onslaught\Onslaught\Temp\bin\Debug\Unity.PackageManagerUI.Editor.dll
-F:\GameDev\Onslaught\Onslaught\Temp\bin\Debug\Unity.TextMeshPro.dll
-F:\GameDev\Onslaught\Onslaught\Temp\bin\Debug\Unity.TextMeshPro.Editor.dll
 F:\GameDev\Onslaught\Onslaught\Temp\bin\Debug\UnityEditor.dll
 F:\GameDev\Onslaught\Onslaught\Temp\bin\Debug\UnityEditor.StandardEvents.dll
 F:\GameDev\Onslaught\Onslaught\Temp\bin\Debug\UnityEngine.AccessibilityModule.dll
