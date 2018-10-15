@@ -5,26 +5,25 @@ using UnityEngine;
 public class ImprovedArrows : PassiveSpell
 {
 
-    PlayerController pController;
+
     PlayerStats pStats;
+
+    float passiveBoosted = 0;
 
     private void Start()
     {
-        pController = GameObject.Find("Archer").GetComponent<PlayerController>();
         pStats = GameObject.Find("Archer").GetComponent<PlayerStats>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Invoke("ApplySpell", 0.0f);
-        }
+        skillDescription = "Permanently boost your arrow damage by " + amount + ". " + "Currently boosted by " + passiveBoosted.ToString();
     }
 
     public void ApplySpell()
     {
-        pStats.baseDamage += (spellLevel * amount);
+        pStats.baseDamage += amount;
+        passiveBoosted += amount;
 
     }
 }

@@ -3,31 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class EnemyStats : MonoBehaviour {
+public class EnemyStats : MonoBehaviour
+{
 
-    [Header ("Enemy Stats")]
+    [Header("Enemy Stats")]
     public float maxHealth;
     public float curHealth;
+    public float damage;
     public float movementSpeed;
+    public float attackSpeed;
     public int expReward;
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    void Start()
     {
-	}
+    }
 
-    /*
-    void OnCollisionEnter2D(Collision2D col)
+    void Update()
     {
-        if (col.gameObject.tag == "Arrow")
-        {
-            Destroy(.gameObject);
-            health -= damage;
-            Debug.Log(enemyHealth);
-        }
-    }*/
+    }
 }

@@ -5,4 +5,5 @@ using UnityEngine;
 public class Spell : MonoBehaviour {
 
     public int spellLevel;
+    public string skillDescription;
 }

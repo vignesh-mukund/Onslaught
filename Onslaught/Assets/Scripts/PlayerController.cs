@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     
     PlayerStats pStats;
-    PlayerSkillMap pSkillMap;
+    //PlayerSkillMap pSkillMap;
 
     BowBehaviour bBehaviour;
     HeadShot headShotSpell;
     DarkenTheSkies darkenTheSkiesSpell;
+    
 
     public bool isArrowLoaded;
     public enum ActiveAttack { None, Spell1, Spell2};
@@ -24,50 +25,61 @@ public class PlayerController : MonoBehaviour {
         headShotSpell = GameObject.Find("HeadShot").GetComponent<HeadShot>();
         darkenTheSkiesSpell = GameObject.Find("DarkenTheSkies").GetComponent<DarkenTheSkies>();
         pStats = GameObject.Find("Archer").GetComponent<PlayerStats>();
-        pSkillMap = GameObject.Find("Archer").GetComponent<PlayerSkillMap>();
+       // pSkillMap = GameObject.Find("Archer").GetComponent<PlayerSkillMap>();
 
         isActive = ActiveAttack.None;
         spell1CDTimer = 0.0f;
         spell2CDTimer = 0.0f;
 		
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-        if(darkenTheSkiesSpell.spellLevel >= 1)
+
+        if (darkenTheSkiesSpell.spellLevel >= 1)
         {
-            if (pStats.curMagic - darkenTheSkiesSpell.magicRequired >= 0)
+            if (Input.GetButtonDown("Fire1"))
             {
-                if (Time.time > spell1CDTimer)
+                if (pStats.curMagic - darkenTheSkiesSpell.magicRequired >= 0)
                 {
-                    if (Input.GetButton("Fire1"))
+                    if (Time.time > spell1CDTimer)
                     {
                         isActive = ActiveAttack.Spell1;
                     }
+                    else
+                    {
+                        Debug.Log(spell1CDTimer - Time.time + " seconds remaining.");
+                    }
                 }
-            }
-            else
-            {
-                return;
+                else
+                {
+                    Debug.Log("Insufficient Magic");
+                    return;
+                }
             }
         }
 
         if (headShotSpell.spellLevel >= 1)
         {
-            if (pStats.curMagic - headShotSpell.magicRequired >= 0)
+            if (Input.GetButtonDown("Fire2"))
             {
-                if (Time.time > spell2CDTimer)
+                if (pStats.curMagic - headShotSpell.magicRequired >= 0)
                 {
-                    if (Input.GetButtonDown("Fire2"))
+                    if (Time.time > spell2CDTimer)
                     {
                         isActive = ActiveAttack.Spell2;
                     }
+                    else
+                    {
+                        Debug.Log(spell2CDTimer - Time.time + " seconds remaining.");
+                    }
                 }
-            }
-            else
-            {
-                return;
+                else
+                {
+                    Debug.Log("Insufficient Magic");
+                    return;
+                }
             }
         }
 
@@ -86,16 +98,20 @@ public class PlayerController : MonoBehaviour {
     {
         if (spell == darkenTheSkiesSpell)
         {
-            if (pStats.curMagic - spell.magicRequired >= 0)
+            if (pStats.curMagic - darkenTheSkiesSpell.magicRequired >= 0)
             {
                 if (Time.time > spell1CDTimer)
                 {
                     isActive = ActiveAttack.Spell1;
-                    spell1CDTimer = Time.time + darkenTheSkiesSpell.cooldown;
+                }
+                else
+                {
+                    Debug.Log(spell1CDTimer - Time.time + " seconds remaining.");
                 }
             }
             else
             {
+                Debug.Log("Insufficient Magic");
                 return;
             }
         }
@@ -104,13 +120,17 @@ public class PlayerController : MonoBehaviour {
             if (pStats.curMagic - headShotSpell.magicRequired >= 0)
             {
                 if (Time.time > spell2CDTimer)
-            {
+                {
                     isActive = ActiveAttack.Spell2;
-                    spell2CDTimer = Time.time + headShotSpell.cooldown;
+                }
+                else
+                {
+                    Debug.Log(spell2CDTimer - Time.time + " seconds remaining.");
                 }
             }
             else
             {
+                Debug.Log("Insufficient Magic");
                 return;
             }
         }

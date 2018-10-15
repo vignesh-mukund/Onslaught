@@ -38,15 +38,6 @@ public class BowBehaviour : MonoBehaviour {
         }
     }
 
-    void FixedUpdate()
-    {
-    }
-
-    void BowLoad()
-    {
-
-    }
-
     /* Fetches mouse position to figure out angle at which the arrow should be shot.
      * Also sets AimAssist ON/OFF depending on arrowFired state.
     */

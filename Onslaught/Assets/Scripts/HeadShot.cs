@@ -19,6 +19,8 @@ public class HeadShot : ActiveSpell {
 
     private void Update()
     {
+        skillDescription = "Your arrows do DOUBLE DAMAGE " + "for " + duration.ToString() + " seconds.";
+        duration = Mathf.Sqrt(spellLevel) - 1 + baseDuration;
         if (pController.isActive == PlayerController.ActiveAttack.Spell2)
         {
             ActivateSpell();
@@ -34,6 +36,7 @@ public class HeadShot : ActiveSpell {
 
     void ActivateSpell()
     {
-        pStats.curDamage = 2f * pStats.baseDamage;
+        pStats.curDamage = 2f * pStats.curDamage;
+        pStats.curMagic -= magicRequired;
     }
 }

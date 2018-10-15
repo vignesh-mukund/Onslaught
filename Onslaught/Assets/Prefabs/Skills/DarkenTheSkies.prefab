@@ -86,8 +86,11 @@ MonoBehaviour:
   spellLevel: 0
   hotKey: 0
   damage: 5
+  baseDamage: 5
   duration: 5
+  baseDuration: 5
   cooldown: 20
+  magicRequired: 10
   lr: {fileID: 120802184597133248}
   ps: {fileID: 198268333244633974}
   range: 2
@@ -99,7 +102,7 @@ LineRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1455926046462174}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 0
@@ -107,7 +110,7 @@ LineRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: fbe07267216e19f45ac403b8c275c024, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

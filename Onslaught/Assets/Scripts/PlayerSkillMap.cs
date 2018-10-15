@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSkillMap : MonoBehaviour {
 
     PlayerStats pStats;
-    LevelSystem lSystem;
+    //LevelSystem lSystem;
 
     public DarkenTheSkies darkenTheSkiesSpell;
     public HeadShot headShotSpell;
@@ -17,7 +17,7 @@ public class PlayerSkillMap : MonoBehaviour {
 	void Start ()
     {
         pStats = GameObject.Find("Archer").GetComponent<PlayerStats>();
-        lSystem = GameObject.Find("GameController").GetComponent<LevelSystem>();
+        //lSystem = GameObject.Find("GameController").GetComponent<LevelSystem>();
 	}
 	
 	void Update ()

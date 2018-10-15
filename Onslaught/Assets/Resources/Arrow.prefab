@@ -22,8 +22,6 @@ GameObject:
   - component: {fileID: 212860306436923016}
   - component: {fileID: 50224268834204574}
   - component: {fileID: 61176972854149448}
-  - component: {fileID: 231023042074249118}
-  - component: {fileID: 114944061042455662}
   - component: {fileID: 114496034646445310}
   m_Layer: 0
   m_Name: Arrow
@@ -102,18 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowFired: 0
---- !u!114 &114944061042455662
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1278597615185374}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37b6e3dbab67bc44dbc27c94df5fe0fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bBehaviour: {fileID: 0}
 --- !u!212 &212860306436923016
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -160,22 +146,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!231 &231023042074249118
-SpringJoint2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1278597615185374}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -9.801854, y: 0.85993147}
-  m_AutoConfigureDistance: 0
-  m_Distance: 0.8
-  m_DampingRatio: 0
-  m_Frequency: 5

@@ -74,6 +74,11 @@ public class SkillBar : MonoBehaviour {
     
     void Update()
     {
+        skill1LevelUpText.text = pStats.unspentSkillPoints.ToString();
+        skill2LevelUpText.text = pStats.unspentSkillPoints.ToString();
+        skill3LevelUpText.text = pStats.unspentSkillPoints.ToString();
+        skill4LevelUpText.text = pStats.unspentSkillPoints.ToString();
+
         if (darkenTheSkies.spellLevel >= 1)
         {
             skill1.interactable = true;
@@ -108,11 +113,6 @@ public class SkillBar : MonoBehaviour {
         }
         if(pStats.unspentSkillPoints < 1)
         {
-            skill1LevelUpText.text = pStats.unspentSkillPoints.ToString();
-            skill2LevelUpText.text = pStats.unspentSkillPoints.ToString();
-            skill3LevelUpText.text = pStats.unspentSkillPoints.ToString();
-            skill4LevelUpText.text = pStats.unspentSkillPoints.ToString();
-
             levelSkill1.interactable = false;
             levelSkill2.interactable = false;
             levelSkill3.interactable = false;

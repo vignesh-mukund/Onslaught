@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour
     public GameObject enemyBerserker;
     public GameObject enemyArcher;
     public GameObject enemyBrute;
+    public GameObject enemyBoss;
+
     public Vector3 spawnValues;
     public int enemyCount;
     public float spawnWait;
@@ -52,7 +54,6 @@ public class GameController : MonoBehaviour
                     GameObject[] spawnedEnemy = new GameObject[] { enemyBerserker, enemyArcher, enemyBrute };
                     Instantiate(spawnedEnemy[Random.Range(0, spawnedEnemy.Length)], spawnPosition, spawnRotation);
                     enemiesAlive++;
-                    Debug.Log(enemiesAlive);
                     gameStart = false;
                     nextLevel = true;
                     yield return new WaitForSeconds(spawnWait);
@@ -62,24 +63,48 @@ public class GameController : MonoBehaviour
         else
         {
             yield return new WaitForSeconds(waveWait);
-            while (enemiesAlive == 0)
+            if ((waveNumber + 1) % 10 == 0)
             {
-                Debug.Log("Wave " + waveNumber + " Complete");
-                waveNumber++;
-                for (int i = 0; i < enemyCount; i++)
+
+                while (enemiesAlive == 0)
                 {
+                    waveNumber++;
+                    float minionCount = waveNumber * 1.5f;
                     Vector3 spawnPosition = new Vector3(Random.Range(spawnValues.x - 4.0f, spawnValues.x + 4.0f), spawnValues.y, spawnValues.z);
                     Quaternion spawnRotation = Quaternion.identity;
-                    GameObject[] spawnedEnemy = new GameObject[] { enemyBerserker, enemyArcher, enemyBrute };
-                    Instantiate(spawnedEnemy[Random.Range(0, spawnedEnemy.Length)], spawnPosition, spawnRotation);
+                    Instantiate(enemyBoss, spawnPosition, spawnRotation);
                     enemiesAlive++;
-                    Debug.Log(enemiesAlive);
-                    nextLevel = true;
-                    yield return new WaitForSeconds(spawnWait);
+
+                    for (int i = 0; i < minionCount; i++)
+                    {
+                        GameObject[] spawnedEnemy = new GameObject[] { enemyBerserker, enemyArcher, enemyBrute };
+                        Instantiate(spawnedEnemy[Random.Range(0, spawnedEnemy.Length)], spawnPosition, spawnRotation);
+                        enemiesAlive++;
+                        nextLevel = true;
+                        yield return new WaitForSeconds(spawnWait);
+                    }
+                }
+            }
+            else
+            {
+                while (enemiesAlive == 0)
+                {
+                    waveNumber++;
+                    for (int i = 0; i < enemyCount; i++)
+                    {
+                        Vector3 spawnPosition = new Vector3(Random.Range(spawnValues.x - 4.0f, spawnValues.x + 4.0f), spawnValues.y, spawnValues.z);
+                        Quaternion spawnRotation = Quaternion.identity;
+                        GameObject[] spawnedEnemy = new GameObject[] { enemyBerserker, enemyArcher, enemyBrute };
+                        Instantiate(spawnedEnemy[Random.Range(0, spawnedEnemy.Length)], spawnPosition, spawnRotation);
+                        enemiesAlive++;
+                        nextLevel = true;
+                        yield return new WaitForSeconds(spawnWait);
+                    }
                 }
             }
         }
     }
+
 
     IEnumerator NextLevel()
     {

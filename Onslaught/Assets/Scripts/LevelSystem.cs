@@ -15,7 +15,7 @@ public class LevelSystem : MonoBehaviour {
 	
 	void Update ()
     {
-	}
+    }
 
     public void UpdateExp(int exp)
     {
@@ -25,14 +25,9 @@ public class LevelSystem : MonoBehaviour {
         if(curLevel != pStats.level)
         {
             pStats.level = curLevel;
+            pStats.maxMagic += 5;
             pStats.unspentSkillPoints += 1;
         }
-
-        /*int expNextLevel = 100 * (pStats.level + 1);
-        int difference = expNextLevel - pStats.curExp;
-
-        int totalDifference = expNextLevel - (100 * pStats.level * pStats.level);
-        */
 
     }
 }

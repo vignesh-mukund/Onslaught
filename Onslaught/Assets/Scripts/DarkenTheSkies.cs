@@ -33,6 +33,8 @@ public class DarkenTheSkies : ActiveSpell {
 
     private void Update()
     {
+        damage = (Mathf.Sqrt(spellLevel)-1) * baseDamage + baseDamage;
+        skillDescription = "Cover an area with an arrow shower dealing " + damage + " damage / sec for " + duration.ToString() + " seconds.";
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         plane = new Plane(Vector3.forward, transform.position);
         float dist = 0;
@@ -62,8 +64,13 @@ public class DarkenTheSkies : ActiveSpell {
         if (Input.GetMouseButtonDown(0))
         {
             timer = Time.time + duration;
+            pStats.curMagic -= magicRequired;
             StartCoroutine(ActivateSpell());
             pController.spell1CDTimer = Time.time + cooldown;
+            pController.isActive = PlayerController.ActiveAttack.None;
+        }
+        else if ((Input.GetButton("Cancel")) || (Input.GetMouseButton(1)))
+        {
             pController.isActive = PlayerController.ActiveAttack.None;
         }
     }
@@ -93,10 +100,9 @@ public class DarkenTheSkies : ActiveSpell {
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Collided with:" + other.gameObject.name);
             var dps = other.gameObject.AddComponent<DamageOverTime>();
             dps.Duration = duration;
-            dps.Damage = (spellLevel * damage);
+            dps.Damage = (damage);
             dps.DamageTickDuration = 1;
         }
         return;

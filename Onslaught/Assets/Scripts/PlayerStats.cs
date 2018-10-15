@@ -20,6 +20,7 @@ public class PlayerStats : MonoBehaviour {
 
     public float magicRegen;
     public float healthRegen;
+    public float healthRegenTimer;
 
     public int maxExp;
     public int curExp;
@@ -44,6 +45,13 @@ public class PlayerStats : MonoBehaviour {
         baseDamage = 10f;
         maxHealth = 200f;
         maxMagic = 10f;
-        //maxExp = 100;
+    }
+
+    private void Update()
+    {
+        if(curHealth <= 0)
+        {
+            curHealth = 0;
+        }
     }
 }

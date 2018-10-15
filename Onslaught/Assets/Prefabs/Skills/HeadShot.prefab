@@ -54,5 +54,8 @@ MonoBehaviour:
   spellLevel: 0
   hotKey: 119
   damage: 0
+  baseDamage: 0
   duration: 4
+  baseDuration: 4
   cooldown: 20
+  magicRequired: 10

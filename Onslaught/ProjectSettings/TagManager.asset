@@ -8,6 +8,9 @@ TagManager:
   - Ground
   - Home Tower
   - Enemy
+  - Enemy Projectile
+  - Game Over
+  - Pause
   layers:
   - Default
   - TransparentFX
